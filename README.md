@@ -16,8 +16,6 @@ This repository contains automated tests for the Automation Exercise website usi
 
    # Install dependencies
    yarn install
-   # or
-   npm install
 
    # Install Playwright browsers
    npx playwright install
@@ -27,29 +25,61 @@ This repository contains automated tests for the Automation Exercise website usi
    ```bash
    # Run all tests
    yarn test
-   # or
-   npm test
 
-   # Run tests in UI mode
-   yarn test:ui
-   # or
-   npm run test:ui
+   # Run API Test Case
+   yarn test:api
+
+   # Run Test Case 001
+   yarn test:tc001
+   
+   # Run Test Case 2
+   yarn test:tc002
    ```
 ## Project Structure
 
 ```
 automation-exercise/
 ├── tests/
-│   ├── api/           # API test implementations
-│   ├── core/          # Core utilities and helpers
-│   ├── pages/         # Page Object Models
-│   └── specs/         # Test specifications
-├── test-results/      # Test execution results
-├── playwright-report/ # Playwright HTML reports
-├── playwright.config.ts
-├── package.json
-├── tsconfig.json
-└── .eslintrc.json
+│   ├── api/                    # API test implementations
+│   │   ├── services/          # API service implementations
+│   │   │   ├── auth.service.ts
+│   │   │   ├── user.service.ts
+│   │   │   └── product.service.ts
+│   │   └── base/             # Base API configurations
+│   │       ├── api.config.ts
+│   │       └── api.base.ts
+│   │
+│   ├── core/                  # Core utilities and helpers
+│   │   ├── setup/            # Test setup and configurations
+│   │   │   ├── test.setup.ts
+│   │   │   └── env.config.ts
+│   │   └── utils/            # Utility functions and helpers
+│   │       ├── test.utils.ts
+│   │       └── data.utils.ts
+│   │
+│   ├── pages/                # Page Object Models
+│   │   ├── base.page.ts
+│   │   ├── home.page.ts
+│   │   └── login.page.ts
+│   │
+│   └── specs/               # Test specifications
+│       ├── api/            # API test specifications
+│       │   ├── product.spec.ts
+│       │   └── brand.spec.ts
+│       └── tc/             # Test case folders
+│           ├── tc001/      # Test case 001
+│           │   ├── tc001.spec.ts
+│           │   └── tc001.data.ts
+│           └── tc002/      # Test case 002
+│               ├── tc002.spec.ts
+│               └── tc002.data.ts
+│
+├── test-results/           # Test execution results
+├── playwright-report/      # Playwright HTML reports
+├── playwright.config.ts    # Playwright configuration
+├── package.json           # Project dependencies and scripts
+├── tsconfig.json         # TypeScript configuration
+└── .eslintrc.json       # ESLint configuration
 ```
 
 ## API Tests (`tests/api/`)
