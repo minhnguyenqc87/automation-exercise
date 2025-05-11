@@ -17,6 +17,9 @@
   },
   "scripts": {
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
-    "test": "playwright test"
+    "test": "playwright test",
+    "test:api": "playwright test tests/api/",
+    "test:tc001": "playwright test tests/specs/tc001.spec.ts",
+    "test:tc002": "playwright test tests/specs/tc002.spec.ts"
   }
 }
